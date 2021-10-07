@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 319916932}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -281,7 +281,7 @@ BoxCollider2D:
   m_Offset: {x: 0.08018708, y: 0.32077536}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 4.48, y: 5.77}
     newSize: {x: 4.48, y: 5.77}
     adaptiveTilingThreshold: 0.5
