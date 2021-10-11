@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Alex_Xu_HW5/Camp/Camp.unity
+    guid: 90a52ddcf03e4a144a3e6c38bc771b04
+  - enabled: 1
+    path: Assets/Alex_Xu_HW5/Woods/Woods.unity
+    guid: 632ce30d80f20444d93e93dd1936f594
   m_configObjects: {}

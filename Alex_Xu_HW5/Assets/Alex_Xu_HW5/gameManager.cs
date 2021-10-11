@@ -10,7 +10,13 @@ public class gameManager : MonoBehaviour
     
     void Awake()
     {
-        Singleton = this;
+        if (Singleton == null) 
+        {
+            Singleton = this;
+        } else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     // Start is called before the first frame update
@@ -22,6 +28,6 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+   
     }
 }

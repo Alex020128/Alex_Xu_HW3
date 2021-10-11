@@ -13,11 +13,10 @@ public class woodNumber : MonoBehaviour
         woodCount = GetComponent<TMP_Text>();
     }
 
-
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
