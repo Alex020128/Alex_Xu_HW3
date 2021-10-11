@@ -21,7 +21,7 @@ public class changePot : MonoBehaviour
         {
             animator.SetTrigger("woodGiven");
             playerDialogue.Singleton.lightFire = true;
-            gameManager.Singleton.wood = 0;
+            gameManager.Singleton.wood -= 5;
         }
     }
     
