@@ -15,7 +15,7 @@ public class playerDialogue : MonoBehaviour
                                                "I should probably take this...",
                                                "I need more wood to light the fire...",
                                                "Now I need to get some food from the tent...",
-                                               "To Be Continued..."};
+                                               "What is that sound?"};
 
     public static playerDialogue Singleton;
 
@@ -31,13 +31,14 @@ public class playerDialogue : MonoBehaviour
         }
 
         playerText = GetComponent<TMP_Text>();
+        getAxe = false;
+        lightFire = false;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        getAxe = false;
-        lightFire = false;
+
     }
 
     void axeDialogue()
@@ -52,6 +53,10 @@ public class playerDialogue : MonoBehaviour
             if (getAxe == true)
             {
                 playerText.text = dialogues[1];
+                if (Input.GetKey(KeyCode.E))
+                {
+                    Movement.Singleton.haveAxe = true;
+                }
             }
         }
     }
@@ -77,6 +82,10 @@ public class playerDialogue : MonoBehaviour
         if (movementScript.collideWith == "Tent")
         {
             playerText.text = dialogues[4];
+            if (Input.GetKey(KeyCode.E))
+            {
+                getAxe = true;
+            }
         }
     }
 

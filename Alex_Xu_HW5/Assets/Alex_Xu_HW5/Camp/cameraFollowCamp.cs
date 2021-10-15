@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cameraFollowCamp : MonoBehaviour
+public class cameraFollow : MonoBehaviour
 {
 
     public float followSpeed;
@@ -22,8 +22,8 @@ public class cameraFollowCamp : MonoBehaviour
         Vector2 targetPos = player.position;
         Vector2 smoothPos = Vector2.Lerp(transform.position, targetPos, followSpeed * Time.deltaTime);
 
-        smoothPos.x = Mathf.Clamp(smoothPos.x,-7, 3.5f);
-        smoothPos.y = Mathf.Clamp(smoothPos.y, -2, 4);
+        smoothPos.x = Mathf.Clamp(smoothPos.x,-7, 0);
+        smoothPos.y = Mathf.Clamp(smoothPos.y, -0.5f, 0.5f);
         transform.position = new Vector3(smoothPos.x, smoothPos.y + yPos, -15.0f);
     }
 }

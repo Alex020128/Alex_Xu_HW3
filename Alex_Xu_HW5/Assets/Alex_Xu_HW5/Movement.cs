@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour
     public bool canMove;
     public bool colliding;
     public bool tentCollide;
+    public bool haveAxe;
 
     public string collideWith;
 
@@ -31,24 +32,38 @@ public class Movement : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        
+        transform.position = new Vector2(3.8f, 2.7f);
     }
+
 
     // Start is called before the first frame update
     void Start()
     {
-        pd = GameObject.Find("playerDialogue");
+         pd = GameObject.Find("playerDialogue");
+        
         pd.active = false;
         colliding = false;
         tentCollide = false;
 
         collideWith = "None";
+        haveAxe = false;
     }
 
     void Walk()
     {
 
         string clipName = animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
-        canMove = clipName != "playerPickUp";
+        if (clipName == "playerPickUp") 
+        {
+            canMove = false;
+        }else if (clipName == "playerAttack")
+        {
+            canMove = false;
+        } else
+        {
+            canMove = true;
+        }
 
         if (canMove)
         {
@@ -63,6 +78,18 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             animator.SetTrigger("pickUp");
+        }
+
+    }
+
+    void Attack()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (haveAxe == true)
+            {
+                animator.SetTrigger("Attack");
+            }
         }
 
     }
@@ -102,6 +129,8 @@ public class Movement : MonoBehaviour
 
                 pickUp();
 
+        Attack();
+
                 if (canMove)
                 {
                     animator.SetFloat("Horizontal", movement.x);
@@ -132,4 +161,4 @@ public class Movement : MonoBehaviour
                     rb.MovePosition(rb.position + movement * walkSpeed * Time.fixedDeltaTime);
                 }
             }
-        }
+}

@@ -19,15 +19,26 @@ public class changePot : MonoBehaviour
             && (gameManager.Singleton.wood >= 5)
             && (Input.GetKey(KeyCode.E)))
         {
-            animator.SetTrigger("woodGiven");
             playerDialogue.Singleton.lightFire = true;
             gameManager.Singleton.wood -= 5;
         }
     }
-    
+
+    void woodGiven()
+    {
+        if (playerDialogue.Singleton.lightFire == true)
+        {
+            animator.SetBool("woodGiven", true);
+        }
+        else
+        {
+            animator.SetBool("woodGiven", false);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
+        woodGiven();
     }
 }
