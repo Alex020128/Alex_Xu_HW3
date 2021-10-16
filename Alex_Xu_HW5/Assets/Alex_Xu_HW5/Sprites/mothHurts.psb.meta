@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 41e3e521b398ef445a1d84fb271c1653
+guid: 61a594fdba166a4499e61d6de9abec3e
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,50 +93,6 @@ ScriptedImporter:
   rigSpriteImportData:
   - name: "\u56FE\u5C42 8"
     originalName: 
-    pivot: {x: 0.49782932, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 491
-      y: 4
-      width: 521
-      height: 296
-    spriteID: fa24c59a85332ef4585c96035f583db7
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 343, y: -237}
-  - name: "\u56FE\u5C42 8"
-    originalName: 
-    pivot: {x: 0.5090198, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 379
-      width: 364
-      height: 399
-    spriteID: 0702b97640a620c4bb704223f7cb445c
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: -218, y: 138}
-  - name: "\u56FE\u5C42 8"
-    originalName: 
     pivot: {x: 0.5053556, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,7 +102,7 @@ ScriptedImporter:
       y: 4
       width: 479
       height: 367
-    spriteID: ee59d1dcee10e414aa9e3b157ecb37ad
+    spriteID: d2873ecfae4511b46a5b29824f998a1d
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -157,6 +113,50 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -161, y: -237}
+  - name: "\u56FE\u5C42 8"
+    originalName: 
+    pivot: {x: 0.5053556, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 379
+      width: 479
+      height: 367
+    spriteID: b6f45be0a073a9741bdbc3623cac26c5
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -161, y: 138}
+  - name: "\u56FE\u5C42 8"
+    originalName: 
+    pivot: {x: 0.5053556, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 491
+      y: 4
+      width: 479
+      height: 367
+    spriteID: 1650d5e68bf82b04497c1a34a3ec59a8
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 326, y: -237}
   characterData:
     bones: []
     parts: []
@@ -194,27 +194,27 @@ ScriptedImporter:
     spriteName: "\u56FE\u5C42 8"
     isGroup: 0
     parentIndex: -1
-    spriteID: fa24c59a85332ef4585c96035f583db7
+    spriteID: d2873ecfae4511b46a5b29824f998a1d
     layerID: 4
-    mosaicPosition: {x: 491, y: 4}
+    mosaicPosition: {x: 4, y: 4}
   - name: "\u56FE\u5C42 8"
     spriteName: "\u56FE\u5C42 8"
     isGroup: 0
     parentIndex: -1
-    spriteID: 0702b97640a620c4bb704223f7cb445c
+    spriteID: b6f45be0a073a9741bdbc3623cac26c5
     layerID: 3
     mosaicPosition: {x: 4, y: 379}
   - name: "\u56FE\u5C42 8"
     spriteName: "\u56FE\u5C42 8"
     isGroup: 0
     parentIndex: -1
-    spriteID: ee59d1dcee10e414aa9e3b157ecb37ad
+    spriteID: 1650d5e68bf82b04497c1a34a3ec59a8
     layerID: 2
-    mosaicPosition: {x: 4, y: 4}
+    mosaicPosition: {x: 491, y: 4}
   sharedRigPSDLayers: []
   generateGOHierarchy: 0
-  textureAssetName: mothStill 1 Texture
-  prefabAssetName: mothStill 1 Prefab
-  spriteLibAssetName: mothStill 1 Sprite Lib
-  skeletonAssetName: mothStill 1 Skeleton
+  textureAssetName: mothHurts Texture
+  prefabAssetName: mothHurts Prefab
+  spriteLibAssetName: mothHurts Sprite Lib
+  skeletonAssetName: mothHurts Skeleton
   secondarySpriteTextures: []

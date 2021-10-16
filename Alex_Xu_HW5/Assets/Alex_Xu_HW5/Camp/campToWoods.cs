@@ -19,7 +19,7 @@ public class campToWoods : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
-            GameObject.Find("Player").transform.position = new Vector2(7, 0);
+            GameObject.Find("Player").transform.position = new Vector2(8.39f, 0);
             SceneManager.LoadScene("Woods");
         }
 

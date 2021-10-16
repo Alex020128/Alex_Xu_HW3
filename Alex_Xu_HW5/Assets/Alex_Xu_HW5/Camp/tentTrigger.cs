@@ -26,6 +26,7 @@ public class tentTrigger : MonoBehaviour
             && (playerDialogue.Singleton.lightFire == true))
         {
             Movement.Singleton.tentCollide = true;
+            gameManager.Singleton.startSpawn = true;
         } else
         {
             Movement.Singleton.tentCollide = false;

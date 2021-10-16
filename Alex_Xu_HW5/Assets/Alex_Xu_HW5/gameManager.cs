@@ -7,8 +7,10 @@ public class gameManager : MonoBehaviour
     public static gameManager Singleton;
 
     public int wood;
-    
-    void Awake()
+    public bool startSpawn;
+    public GameObject[] moths;
+
+void Awake()
     {
         if (Singleton == null) 
         {
@@ -23,13 +25,35 @@ public class gameManager : MonoBehaviour
     void Start()
     {
         wood = 0;
-
+        startSpawn = false;
+        
     }
-    
-    
-    // Update is called once per frame
-    void Update()
-    {
 
+
+
+    void spawnMoths()
+    {
+        if (startSpawn == true){
+            foreach (GameObject moth in moths)
+            {
+                moth.active = true;
+            }
+        } else
+        {
+            foreach (GameObject moth in moths)
+            {
+                moth.active = false;
+            }
+        }
+    }
+
+
+
+
+// Update is called once per frame
+void Update()
+    {
+        moths = GameObject.FindGameObjectsWithTag("Moth");
+        spawnMoths();
     }
 }

@@ -8,6 +8,9 @@ TagManager:
   - Axe
   - Pot
   - Tent
+  - playerArea
+  - mothArea
+  - Moth
   layers:
   - Default
   - TransparentFX

@@ -11,8 +11,10 @@ public class Movement : MonoBehaviour
     public Animator animator;
     public bool canMove;
     public bool colliding;
+    public bool attacking;
     public bool tentCollide;
     public bool haveAxe;
+    public bool invincible;
 
     public string collideWith;
 
@@ -40,10 +42,11 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         pd = GameObject.Find("playerDialogue");
+        pd = GameObject.Find("playerDialogue");
         
         pd.active = false;
         colliding = false;
+        attacking = false;
         tentCollide = false;
 
         collideWith = "None";
@@ -60,9 +63,11 @@ public class Movement : MonoBehaviour
         }else if (clipName == "playerAttack")
         {
             canMove = false;
+            attacking = true;
         } else
         {
             canMove = true;
+            attacking = false;
         }
 
         if (canMove)
@@ -121,15 +126,27 @@ public class Movement : MonoBehaviour
 
     }
 
+    void getHurt()
+    {
+        if (invincible == true)
+        {
+            StartCoroutine(WaitForSec());
+        }
+    }
+    IEnumerator WaitForSec()
+    {
+        yield return new WaitForSeconds(2);
+        invincible = false;
+    }
+
 
     // Update is called once per frame
     void Update()
-            {
-                Walk();
-
-                pickUp();
-
+    {
+        Walk();
+        pickUp();
         Attack();
+        getHurt();
 
                 if (canMove)
                 {
