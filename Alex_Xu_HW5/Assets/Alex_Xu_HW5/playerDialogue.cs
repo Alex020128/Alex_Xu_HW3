@@ -8,6 +8,7 @@ public class playerDialogue : MonoBehaviour
     public TMP_Text playerText;
     public bool getAxe;
     public bool lightFire;
+    public bool bossSpawn;
 
     public Movement movementScript;
 
@@ -15,7 +16,9 @@ public class playerDialogue : MonoBehaviour
                                                "I should probably take this...",
                                                "I need more wood to light the fire...",
                                                "Now I need to get some food from the tent...",
-                                               "What is that sound?"};
+                                               "What is that sound?",
+                                               "What the fuck is this? I have to burn it.",
+                                               "What have I done?"};
 
     public static playerDialogue Singleton;
 
@@ -77,6 +80,22 @@ public class playerDialogue : MonoBehaviour
         }
     }
 
+    void cocoonDialogue()
+    {
+        if (movementScript.collideWith == "Cocoon")
+        {
+            if (bossSpawn == false)
+            {
+                playerText.text = dialogues[5];
+            }
+
+            if (bossSpawn == true)
+            {
+                playerText.text = dialogues[6];
+            }
+        }
+    }
+
     public void tentDialogue()
     {
         if (movementScript.collideWith == "Tent")
@@ -95,5 +114,6 @@ public class playerDialogue : MonoBehaviour
         axeDialogue();
         potDialogue();
         tentDialogue();
+        cocoonDialogue();
     }
 }

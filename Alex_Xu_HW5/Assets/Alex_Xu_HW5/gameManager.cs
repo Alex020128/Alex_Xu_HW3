@@ -8,6 +8,7 @@ public class gameManager : MonoBehaviour
 
     public int wood;
     public bool startSpawn;
+    public bool stageTwo;
     public GameObject[] moths;
 
 void Awake()
@@ -26,7 +27,8 @@ void Awake()
     {
         wood = 0;
         startSpawn = false;
-        
+        stageTwo = false;
+
     }
 
 

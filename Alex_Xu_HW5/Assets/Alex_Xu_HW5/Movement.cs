@@ -119,6 +119,12 @@ public class Movement : MonoBehaviour
             tentCollide = false;
             collideWith = "Pot";
             pd.active = true;
+        } else if ((collision.collider.gameObject.tag == "bossCocoon") && (gameManager.Singleton.startSpawn == true) && (Input.GetKey(KeyCode.E)))
+        {
+            colliding = true;
+            tentCollide = false;
+            collideWith = "Cocoon";
+            pd.active = true;
         } else
         {
             colliding = false;

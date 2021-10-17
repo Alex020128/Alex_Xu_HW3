@@ -10,6 +10,7 @@ public class mothMovement : MonoBehaviour
     public float shootingRange;
     public float fireRate = 1;
     private float nextFireTime;
+    public Animator animator;
 
     public GameObject bullet;
     public GameObject bulletParent;
@@ -41,12 +42,15 @@ public class mothMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        string clipName = animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
+
         float distanceFromPlayer = Vector2.Distance(player.position, transform.position);
         if(distanceFromPlayer < lineOfSite && distanceFromPlayer > shootingRange)
         {
             rb.isKinematic = false;
             transform.position = Vector2.MoveTowards(this.transform.position, player.position, followSpeed * Time.deltaTime);
-        } else if (distanceFromPlayer <= shootingRange && nextFireTime < Time.time)
+        } else if (distanceFromPlayer <= shootingRange && nextFireTime < Time.time && clipName != "mothHurts")
         {
             rb.isKinematic = true;
             Instantiate(bullet, bulletParent.transform.position, Quaternion.identity);
