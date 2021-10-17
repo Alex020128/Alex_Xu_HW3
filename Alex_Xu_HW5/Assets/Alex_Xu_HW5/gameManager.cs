@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class gameManager : MonoBehaviour
     public int wood;
     public bool startSpawn;
     public bool stageTwo;
+    public GameObject axeUI;
     public GameObject[] moths;
 
 void Awake()
@@ -29,13 +31,32 @@ void Awake()
         startSpawn = false;
         stageTwo = false;
 
+        axeUI = GameObject.Find("axeUI");
+
     }
 
+    void showAxeUI()
+    {
+        if (Movement.Singleton.haveAxe == true)
+        {
+            axeUI.active = true;
+        }
+        else
+        {
+            axeUI.active = false;
+        }
+    }
 
 
     void spawnMoths()
     {
         if (startSpawn == true){
+
+            if(SceneManager.GetActiveScene().name == "Woods")
+            {
+                playerGoal.Singleton.mothSpawn = true;
+            }
+
             foreach (GameObject moth in moths)
             {
                 moth.active = true;
@@ -49,13 +70,11 @@ void Awake()
         }
     }
 
-
-
-
 // Update is called once per frame
 void Update()
     {
         moths = GameObject.FindGameObjectsWithTag("Moth");
         spawnMoths();
+        showAxeUI();
     }
 }

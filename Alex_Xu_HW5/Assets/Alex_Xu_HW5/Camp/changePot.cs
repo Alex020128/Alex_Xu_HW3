@@ -19,6 +19,7 @@ public class changePot : MonoBehaviour
             && (gameManager.Singleton.wood >= 5)
             && (Input.GetKey(KeyCode.E)))
         {
+            playerGoal.Singleton.collectFood = true;
             playerDialogue.Singleton.lightFire = true;
             gameManager.Singleton.wood -= 5;
         }

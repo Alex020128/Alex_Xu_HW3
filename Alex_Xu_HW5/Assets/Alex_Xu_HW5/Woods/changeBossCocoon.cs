@@ -18,6 +18,7 @@ public class changeBossCocoon : MonoBehaviour
             && (gameManager.Singleton.wood >= 10)
             && (Input.GetKey(KeyCode.E)))
         {
+            playerGoal.Singleton.bossStageTwo = true;
             gameManager.Singleton.stageTwo = true;
             playerDialogue.Singleton.bossSpawn = true;
             gameManager.Singleton.wood -= 10;

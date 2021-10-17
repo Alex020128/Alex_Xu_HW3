@@ -115,12 +115,14 @@ public class Movement : MonoBehaviour
             pd.active = true;
         } else if ((collision.collider.gameObject.tag == "Pot") && (Input.GetKey(KeyCode.E)))
         {
+            playerGoal.Singleton.collectWood = true;
             colliding = true;
             tentCollide = false;
             collideWith = "Pot";
             pd.active = true;
         } else if ((collision.collider.gameObject.tag == "bossCocoon") && (gameManager.Singleton.startSpawn == true) && (Input.GetKey(KeyCode.E)))
         {
+            playerGoal.Singleton.burnCocoon = true;
             colliding = true;
             tentCollide = false;
             collideWith = "Cocoon";
@@ -168,6 +170,7 @@ public class Movement : MonoBehaviour
         }
         else if ((tentCollide == true))
         {
+            playerGoal.Singleton.equipAxe = true;
             pd.active = true;
             collideWith = "Tent";
         }
