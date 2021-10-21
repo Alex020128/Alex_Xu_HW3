@@ -94,7 +94,7 @@ ScriptedImporter:
   - name: "\u56FE\u5C42 37"
     originalName: 
     pivot: {x: 0.5, y: 0}
-    alignment: 9
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -102,7 +102,7 @@ ScriptedImporter:
       y: 4
       width: 1410
       height: 2188
-    spriteID: 1658a124904495a43861cfcc817fa79a
+    spriteID: 7a511e403a64b1849ae2f8cecf6a7b4b
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -116,7 +116,7 @@ ScriptedImporter:
   - name: "\u56FE\u5C42 13"
     originalName: 
     pivot: {x: 0.5, y: 0}
-    alignment: 9
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -124,7 +124,7 @@ ScriptedImporter:
       y: 2200
       width: 1410
       height: 2188
-    spriteID: 03bbee1b9b3dc7a4d9bb92a6b0ed3a01
+    spriteID: da456d1ad567b5447bb55b55ed81f5e7
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -138,7 +138,7 @@ ScriptedImporter:
   - name: "\u56FE\u5C42 37"
     originalName: 
     pivot: {x: 0.5, y: 0}
-    alignment: 9
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -146,7 +146,7 @@ ScriptedImporter:
       y: 4396
       width: 1410
       height: 2188
-    spriteID: 0c714ae01a1cba34ebc73188360f469f
+    spriteID: b5bf482d5bf7aea47982af7466da2313
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -160,15 +160,15 @@ ScriptedImporter:
   - name: "\u56FE\u5C42 13"
     originalName: 
     pivot: {x: 0.5, y: 0}
-    alignment: 9
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 1422
+      x: 1423
       y: 4
       width: 1410
       height: 2188
-    spriteID: 615de26efc338014cbb092c4c2c9eab5
+    spriteID: a17be47845ace1a458b2f169b0e52805
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -216,28 +216,28 @@ ScriptedImporter:
     spriteName: "\u56FE\u5C42 37"
     isGroup: 0
     parentIndex: -1
-    spriteID: 1658a124904495a43861cfcc817fa79a
+    spriteID: 7a511e403a64b1849ae2f8cecf6a7b4b
     layerID: 5
     mosaicPosition: {x: 4, y: 4}
   - name: "\u56FE\u5C42 13"
     spriteName: "\u56FE\u5C42 13"
     isGroup: 0
     parentIndex: -1
-    spriteID: 03bbee1b9b3dc7a4d9bb92a6b0ed3a01
+    spriteID: da456d1ad567b5447bb55b55ed81f5e7
     layerID: 4
     mosaicPosition: {x: 4, y: 2200}
   - name: "\u56FE\u5C42 37"
     spriteName: "\u56FE\u5C42 37"
     isGroup: 0
     parentIndex: -1
-    spriteID: 0c714ae01a1cba34ebc73188360f469f
+    spriteID: b5bf482d5bf7aea47982af7466da2313
     layerID: 3
     mosaicPosition: {x: 4, y: 4396}
   - name: "\u56FE\u5C42 13"
     spriteName: "\u56FE\u5C42 13"
     isGroup: 0
     parentIndex: -1
-    spriteID: 615de26efc338014cbb092c4c2c9eab5
+    spriteID: a17be47845ace1a458b2f169b0e52805
     layerID: 2
     mosaicPosition: {x: 1422, y: 4}
   sharedRigPSDLayers: []
