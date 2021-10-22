@@ -12,6 +12,7 @@ TagManager:
   - mothArea
   - Moth
   - bossCocoon
+  - Boss
   layers:
   - Default
   - TransparentFX
