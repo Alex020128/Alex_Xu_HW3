@@ -22,7 +22,10 @@ public class bossMovement : MonoBehaviour
     private Transform player;
     public Rigidbody2D rb;
 
+    private void Awake()
+    {
 
+    }
 
 
     // Start is called before the first frame update

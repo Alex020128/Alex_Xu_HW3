@@ -9,6 +9,7 @@ public class mothArea : MonoBehaviour
     private PolygonCollider2D pc;
     public float health;
     public bool invincible;
+    public bool colliding;
 
     private void Awake()
     {
@@ -26,14 +27,22 @@ public class mothArea : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if ((collision.CompareTag("playerArea")) && (Movement.Singleton.attacking == true) && (invincible == false))
+        if (collision.CompareTag("playerArea")){
+            colliding = true;
+        } else
         {
+            colliding = false;
+        }
+    }
+
+    void getHurt() { 
+    if (colliding == true && Movement.Singleton.attacking == true && invincible == false){
             health -= 1;
             animator.SetTrigger("getHurt");
             invincible = true;
             StartCoroutine(WaitForSec());
         }
-    }
+}
 
     IEnumerator WaitForSec()
     {
@@ -44,7 +53,8 @@ public class mothArea : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(health <= 0)
+        getHurt();
+        if (health <= 0)
         {
             Destroy(transform.parent.gameObject);
         }

@@ -6,9 +6,9 @@ public class bossArea : MonoBehaviour
 {
 
     public Animator animator;
-    public Animator playerAnimator;
+    public Animator wingsAnimator;
     private PolygonCollider2D pc;
-    public float health;
+    public int health;
     public bool invincible;
 
     public bossMovement bossMovementScript;
@@ -22,55 +22,46 @@ public class bossArea : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = 100;
+        health = 50;
         invincible = false;
         animator = GetComponentInParent<Animator>();
-        playerAnimator = GameObject.Find("Player").GetComponent<Animator>();
+        wingsAnimator = GameObject.Find("bossWings").GetComponent<Animator>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("playerArea"))
         {
-
             bossMovementScript.colliding = true;
-
-            if (Movement.Singleton.attacking == true && invincible == false)
-            {
-                health -= 1;
-                animator.SetTrigger("getHurt");
-                invincible = true;
-                StartCoroutine(WaitForSec());
-            }
         } else
         {
             bossMovementScript.colliding = false;
         }
     }
 
-    IEnumerator WaitForSec()
+    void getHurt()
+    {
+        if (bossMovementScript.colliding == true && Movement.Singleton.attacking == true && invincible == false)
+        {
+            health -= 1;
+            animator.SetTrigger("getHurt");
+            wingsAnimator.SetTrigger("getHurt");
+            invincible = true;
+            StartCoroutine(WaitForSec());
+        }
+    }
+
+IEnumerator WaitForSec()
     {
         yield return new WaitForSeconds(1);
         invincible = false;
-    }
-
-
-    void meleeAttack()
-    {
-        if (bossMovementScript.colliding == true && bossMovementScript.damaging == true && Movement.Singleton.invincible == false)
-        {
-            playerHealth.Singleton.health -= 5;
-            bossMovementScript.damaging = false;
-            Movement.Singleton.invincible = true;
-            playerAnimator.SetTrigger("getHurt");
-        }
     }
 
 // Update is called once per frame
 void Update()
     {
 
-        meleeAttack();
+        getHurt();
 
 
         if (health <= 0)

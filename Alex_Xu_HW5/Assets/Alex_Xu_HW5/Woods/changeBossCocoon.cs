@@ -6,10 +6,14 @@ public class changeBossCocoon : MonoBehaviour
 {
 
     public Animator animator;
+    public GameObject boss;
+    public GameObject bossHealth;
 
     // Start is called before the first frame update
     void Start()
     {
+        boss = GameObject.Find("Boss");
+        bossHealth = GameObject.Find("bossHealthNumber");
     }
 
     public void OnCollisionStay2D(Collision2D collision)
@@ -48,9 +52,24 @@ public class changeBossCocoon : MonoBehaviour
     }
 
 
+    void spawnBoss()
+    {
+        if (gameManager.Singleton.stageTwo == true)
+        {
+            boss.active = true;
+            bossHealth.active = true;
+        }
+        else
+        {
+            boss.active = false;
+            bossHealth.active = false;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         changeStages();
+        spawnBoss();
     }
 }
