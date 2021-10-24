@@ -9,8 +9,12 @@ public class playerDialogue : MonoBehaviour
     public bool getAxe;
     public bool lightFire;
     public bool bossSpawn;
+    public bool win;
 
     public Movement movementScript;
+    public Animator playerAnimator;
+    public GameObject endings;
+
 
     public string[] dialogues = new string[] { "I dont' need this now...",
                                                "I should probably take this...",
@@ -18,7 +22,8 @@ public class playerDialogue : MonoBehaviour
                                                "Now I need to get some food from the tent...",
                                                "What is that sound?",
                                                "What the fuck is this? I have to burn it.",
-                                               "What have I done?"};
+                                               "What have I done?",
+                                               "Nom nom nom..."};
 
     public static playerDialogue Singleton;
 
@@ -36,12 +41,14 @@ public class playerDialogue : MonoBehaviour
         playerText = GetComponent<TMP_Text>();
         getAxe = false;
         lightFire = false;
+        win = false;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        playerAnimator = GameObject.Find("Player").GetComponent<Animator>();
+        endings = GameObject.Find("Endings");
     }
 
     void axeDialogue()
@@ -68,16 +75,33 @@ public class playerDialogue : MonoBehaviour
     {
         if (movementScript.collideWith == "Pot")
         {
-            if (lightFire == false)
+            if (gameManager.Singleton.bossKilled == false)
             {
-                playerText.text = dialogues[2];
-            }
+                if (lightFire == false)
+                {
+                    playerText.text = dialogues[2];
+                }
 
-            if (lightFire == true)
+                if (lightFire == true)
+                {
+                    playerText.text = dialogues[3];
+                }
+            } else
             {
-                playerText.text = dialogues[3];
+                playerText.text = dialogues[7];
+                playerAnimator.SetBool("Eat", true);
+                win = true;
+                StartCoroutine(WaitForSec());
             }
         }
+    }
+    IEnumerator WaitForSec()
+    {
+        yield return new WaitForSeconds(3);
+        endings.active = true;
+        Endings.Singleton.win = true;
+        gameObject.active = false;
+
     }
 
     void cocoonDialogue()

@@ -40,9 +40,9 @@ public class bossMeleeRange : MonoBehaviour
 
         void meleeAttack()
         {
-            if (colliding == true && bossMovementScript.damaging == true && Movement.Singleton.invincible == false)
+            if (colliding == true && bossMovementScript.damaging == true && Movement.Singleton.invincible == false && gameManager.Singleton.playerDies == false)
             {
-                playerHealth.Singleton.health -= 5;
+                playerHealth.Singleton.health -= 3;
             bossMovementScript.damaging = false;
                 Movement.Singleton.invincible = true;
                 playerAnimator.SetTrigger("getHurt");

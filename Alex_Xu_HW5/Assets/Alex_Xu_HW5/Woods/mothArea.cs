@@ -37,7 +37,14 @@ public class mothArea : MonoBehaviour
 
     void getHurt() { 
     if (colliding == true && Movement.Singleton.attacking == true && invincible == false){
-            health -= 1;
+
+            if(Movement.Singleton.heating == false)
+            {
+                health -= 1;
+            } else
+            {
+                health -= 5;
+            }
             animator.SetTrigger("getHurt");
             invincible = true;
             StartCoroutine(WaitForSec());

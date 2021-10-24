@@ -54,14 +54,20 @@ public class changeBossCocoon : MonoBehaviour
 
     void spawnBoss()
     {
-        if (gameManager.Singleton.stageTwo == true)
+        if (gameManager.Singleton.bossKilled == false)
         {
-            boss.active = true;
-            bossHealth.active = true;
-        }
-        else
+            if (gameManager.Singleton.stageTwo == true)
+            {
+                boss.active = true;
+                bossHealth.active = true;
+            }
+            else
+            {
+                boss.active = false;
+                bossHealth.active = false;
+            }
+        } else
         {
-            boss.active = false;
             bossHealth.active = false;
         }
     }

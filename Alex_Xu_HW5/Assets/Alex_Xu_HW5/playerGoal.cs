@@ -23,7 +23,8 @@ public class playerGoal : MonoBehaviour
                                            "Strange sound come from the western woods.\nFor safety, equip the axe before check it out.",
                                            "Moth-like monsters are out in the woods.\nAttack with the axe and find the cause of the chaos.",
                                            "A huge cocoon appears on a tree, and my axe can't cut it?\nCollect 10 pieces of wood to try burn it down.",
-                                           "The monster in the cocoon comes out of the cocoon!\nHeat the axe with fire to deal fire damage."};
+                                           "The monster in the cocoon comes out of the cocoon!\nHeat the axe with fire to deal fire damage.",
+                                           "You defeated the monster!\nNow head back to your camp and enjoy the breakfast."};
 
     private void Awake()
     {
@@ -54,8 +55,8 @@ public class playerGoal : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if(collectWood == true)
+    {   
+        if (collectWood == true)
         {
             goal.text = goals[1];
             if (collectFood == true)
@@ -73,6 +74,10 @@ public class playerGoal : MonoBehaviour
                             if (bossStageTwo == true)
                             {
                                 goal.text = goals[6];
+                                if (gameManager.Singleton.bossKilled == true)
+                                {
+                                    goal.text = goals[7];
+                                }
                             }
                         }
                     }

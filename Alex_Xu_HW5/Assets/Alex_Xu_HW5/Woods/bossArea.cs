@@ -43,7 +43,14 @@ public class bossArea : MonoBehaviour
     {
         if (bossMovementScript.colliding == true && Movement.Singleton.attacking == true && invincible == false)
         {
-            health -= 1;
+            if (Movement.Singleton.heating == false)
+            {
+                health -= 1;
+            }
+            else
+            {
+                health -= 5;
+            }
             animator.SetTrigger("getHurt");
             wingsAnimator.SetTrigger("getHurt");
             invincible = true;
@@ -66,7 +73,8 @@ void Update()
 
         if (health <= 0)
         {
-            Destroy(transform.parent.gameObject);
+            gameManager.Singleton.bossKilled = true;
+            transform.parent.gameObject.active = false;
         }
     }
 }

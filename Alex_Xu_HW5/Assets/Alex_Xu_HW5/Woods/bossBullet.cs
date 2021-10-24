@@ -27,7 +27,7 @@ public class bossBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((collision.CompareTag("playerArea")) && (Movement.Singleton.invincible == false))
+        if ((collision.CompareTag("playerArea")) && (Movement.Singleton.invincible == false) && (gameManager.Singleton.playerDies == false))
         {
             playerHealth.Singleton.health -= 2;
             Movement.Singleton.invincible = true;

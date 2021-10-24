@@ -15,6 +15,7 @@ public class Movement : MonoBehaviour
     public bool tentCollide;
     public bool haveAxe;
     public bool invincible;
+    public bool heating;
 
     public string collideWith;
 
@@ -48,6 +49,7 @@ public class Movement : MonoBehaviour
         colliding = false;
         attacking = false;
         tentCollide = false;
+        heating = false;
 
         collideWith = "None";
         haveAxe = false;
@@ -60,10 +62,14 @@ public class Movement : MonoBehaviour
         if (clipName == "playerPickUp") 
         {
             canMove = false;
-        }else if (clipName == "playerAttack")
+        }else if (clipName == "playerAttack" || clipName == "playerFireAttack")
         {
             canMove = false;
             attacking = true;
+        } else if (gameManager.Singleton.playerDies == true || playerDialogue.Singleton.win == true)
+        {
+            canMove = false;
+            attacking = false;
         } else
         {
             canMove = true;
@@ -80,7 +86,7 @@ public class Movement : MonoBehaviour
 
     void pickUp()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && gameManager.Singleton.playerDies == false && playerDialogue.Singleton.win == false)
         {
             animator.SetTrigger("pickUp");
         }
@@ -89,11 +95,16 @@ public class Movement : MonoBehaviour
 
     void Attack()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && gameManager.Singleton.playerDies == false && playerDialogue.Singleton.win == false)
         {
-            if (haveAxe == true)
+            if (haveAxe == true && heating == false)
             {
                 animator.SetTrigger("Attack");
+            }
+
+            if (haveAxe == true && heating == true)
+            {
+                animator.SetTrigger("fireAttack");
             }
         }
 
@@ -115,11 +126,11 @@ public class Movement : MonoBehaviour
             pd.active = true;
         } else if ((collision.collider.gameObject.tag == "Pot") && (Input.GetKey(KeyCode.E)))
         {
-            playerGoal.Singleton.collectWood = true;
-            colliding = true;
-            tentCollide = false;
-            collideWith = "Pot";
-            pd.active = true;
+                playerGoal.Singleton.collectWood = true;
+                colliding = true;
+                tentCollide = false;
+                collideWith = "Pot";
+                pd.active = true;
         } else if ((collision.collider.gameObject.tag == "bossCocoon") && (gameManager.Singleton.startSpawn == true) && (Input.GetKey(KeyCode.E)))
         {
             playerGoal.Singleton.burnCocoon = true;
@@ -164,19 +175,22 @@ public class Movement : MonoBehaviour
                 }
 
 
-        if (colliding == true)
+        if (Endings.Singleton.win == false)
         {
-            pd.active = true;
-        }
-        else if ((tentCollide == true))
-        {
-            playerGoal.Singleton.equipAxe = true;
-            pd.active = true;
-            collideWith = "Tent";
-        }
-        else
-        {
-            pd.active = false;
+            if (colliding == true)
+            {
+                pd.active = true;
+            }
+            else if ((tentCollide == true))
+            {
+                playerGoal.Singleton.equipAxe = true;
+                pd.active = true;
+                collideWith = "Tent";
+            }
+            else
+            {
+                pd.active = false;
+            }
         }
     }
 

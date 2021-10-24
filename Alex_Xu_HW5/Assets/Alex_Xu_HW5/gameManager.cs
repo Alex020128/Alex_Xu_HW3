@@ -10,7 +10,10 @@ public class gameManager : MonoBehaviour
     public int wood;
     public bool startSpawn;
     public bool stageTwo;
+    public bool bossKilled;
+    public bool playerDies;
     public GameObject axeUI;
+    public GameObject blackScreen;
     public GameObject[] moths;
 
 void Awake()
@@ -30,14 +33,17 @@ void Awake()
         wood = 0;
         startSpawn = false;
         stageTwo = false;
+        bossKilled = false;
+        playerDies = false;
 
         axeUI = GameObject.Find("axeUI");
+        blackScreen = GameObject.Find("blackScreen");
 
     }
 
     void showAxeUI()
     {
-        if (Movement.Singleton.haveAxe == true)
+        if (Movement.Singleton.haveAxe == true && gameManager.Singleton.playerDies == false && playerDialogue.Singleton.win == false)
         {
             axeUI.active = true;
         }
@@ -50,7 +56,8 @@ void Awake()
 
     void spawnMoths()
     {
-        if (startSpawn == true){
+        if (startSpawn == true && gameManager.Singleton.bossKilled == false)
+        {
 
             if(SceneManager.GetActiveScene().name == "Woods")
             {
@@ -70,11 +77,44 @@ void Awake()
         }
     }
 
-// Update is called once per frame
-void Update()
+    void Die()
+    {
+        if (gameManager.Singleton.playerDies == true)
+        {
+            blackScreen.active = true;
+        }
+        else
+        {
+            blackScreen.active = false;
+        }
+    }
+
+    void heatedAxe()
+    {
+        if(wood >= 1 && playerDialogue.Singleton.bossSpawn == true)
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                wood -= 1;
+                Movement.Singleton.heating = true;
+                StartCoroutine(WaitForSec());
+            }
+        }
+    }
+
+    IEnumerator WaitForSec()
+    {
+        yield return new WaitForSeconds(3);
+        Movement.Singleton.heating = false;
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         moths = GameObject.FindGameObjectsWithTag("Moth");
         spawnMoths();
         showAxeUI();
+        heatedAxe();
+        Die();
     }
 }
