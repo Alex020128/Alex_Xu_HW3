@@ -17,7 +17,7 @@ public class changePot : MonoBehaviour
     {
         if ((collision.collider.gameObject.tag == "Player") 
             && (gameManager.Singleton.wood >= 5)
-            && (Input.GetKeyDown(KeyCode.E)))
+            && (Input.GetKey(KeyCode.E)))
         {
             playerGoal.Singleton.collectFood = true;
             playerDialogue.Singleton.lightFire = true;

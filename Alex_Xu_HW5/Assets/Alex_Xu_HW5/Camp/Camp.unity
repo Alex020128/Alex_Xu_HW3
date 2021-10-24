@@ -4577,6 +4577,7 @@ MonoBehaviour:
   endingText: {fileID: 861791956}
   die: 0
   win: 0
+  pd: {fileID: 0}
   endings:
   - 'You died...
 

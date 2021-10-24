@@ -42,13 +42,13 @@ public class playerDialogue : MonoBehaviour
         getAxe = false;
         lightFire = false;
         win = false;
+        endings = GameObject.Find("Endings");
     }
 
     // Start is called before the first frame update
     void Start()
     {
         playerAnimator = GameObject.Find("Player").GetComponent<Animator>();
-        endings = GameObject.Find("Endings");
     }
 
     void axeDialogue()

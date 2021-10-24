@@ -10,6 +10,8 @@ public class Endings : MonoBehaviour
     public bool die;
     public bool win;
 
+    public GameObject pd;
+
 
     public string[] endings = new string[] { "You died...\nPress R to restart.",
                                              "What a nice way to start a day!\nPress R to restart."};
@@ -28,6 +30,7 @@ public class Endings : MonoBehaviour
         }
 
         endingText = GetComponent<TMP_Text>();
+        pd = GameObject.Find("playerDialogue");
 
     }
 

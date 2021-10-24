@@ -68,6 +68,7 @@ public class changeBossCocoon : MonoBehaviour
             }
         } else
         {
+            boss.active = false;
             bossHealth.active = false;
         }
     }

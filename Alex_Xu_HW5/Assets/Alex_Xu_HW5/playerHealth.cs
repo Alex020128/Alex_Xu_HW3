@@ -25,6 +25,7 @@ public class playerHealth : MonoBehaviour
             Destroy(this.gameObject);
         }
         healthCount = GetComponent<TMP_Text>();
+        endings = GameObject.Find("Endings");
     }
 
     // Start is called before the first frame update
@@ -34,7 +35,6 @@ public class playerHealth : MonoBehaviour
         playerAnimator = GameObject.Find("Player").GetComponent<Animator>();
         player = GameObject.Find("Player");
         healthUI = GameObject.Find("healthUI");
-        endings = GameObject.Find("Endings");
         endings.active = false;
     }
    

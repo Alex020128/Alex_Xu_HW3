@@ -174,23 +174,28 @@ public class Movement : MonoBehaviour
                     animator.SetFloat("Speed", movement.sqrMagnitude);
                 }
 
-
-        if (Endings.Singleton.win == false)
+        if (colliding == true)
         {
-            if (colliding == true)
-            {
-                pd.active = true;
-            }
-            else if ((tentCollide == true))
-            {
-                playerGoal.Singleton.equipAxe = true;
-                pd.active = true;
-                collideWith = "Tent";
-            }
-            else
+            pd.active = true;
+        }
+        else if ((tentCollide == true))
+        {
+            playerGoal.Singleton.equipAxe = true;
+            pd.active = true;
+            collideWith = "Tent";
+        }
+        else if (playerDialogue.Singleton.win == true || Endings.Singleton.win == true)
+        {
+            pd.active = true;
+            
+            if(Endings.Singleton.win == true)
             {
                 pd.active = false;
             }
+        }
+        else
+        {
+            pd.active = false;
         }
     }
 
