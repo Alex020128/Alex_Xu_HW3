@@ -43,8 +43,6 @@ public class playerHealth : MonoBehaviour
         yield return new WaitForSeconds(3);
         endings.active = true;
         Endings.Singleton.die = true;
-        healthUI.active = false;
-        gameObject.active = false;
     }
 
 

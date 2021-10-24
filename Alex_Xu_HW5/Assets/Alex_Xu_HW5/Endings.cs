@@ -10,13 +10,13 @@ public class Endings : MonoBehaviour
     public bool die;
     public bool win;
 
-    public GameObject pd;
-
-
     public string[] endings = new string[] { "You died...\nPress R to restart.",
                                              "What a nice way to start a day!\nPress R to restart."};
 
     public static Endings Singleton;
+    public GameObject pd;
+    public GameObject ph;
+    public GameObject phUI;
 
     private void Awake()
     {
@@ -31,6 +31,8 @@ public class Endings : MonoBehaviour
 
         endingText = GetComponent<TMP_Text>();
         pd = GameObject.Find("playerDialogue");
+        ph = GameObject.Find("healthNumber");
+        phUI = GameObject.Find("healthUI");
 
     }
 
@@ -49,11 +51,23 @@ public class Endings : MonoBehaviour
         if (die == true)
         {
             endingText.text = endings[0];
+            StartCoroutine(WaitForSec());
         }
 
         if (win == true)
         {
             endingText.text = endings[1];
+            StartCoroutine(WaitForSec());
         }
     }
+
+    IEnumerator WaitForSec()
+    {
+        yield return new WaitForSeconds(2);
+
+            ph.active = false;
+            phUI.active = false;
+            pd.active = false;
+    }
+
 }

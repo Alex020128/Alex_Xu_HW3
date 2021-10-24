@@ -4577,7 +4577,6 @@ MonoBehaviour:
   endingText: {fileID: 861791956}
   die: 0
   win: 0
-  pd: {fileID: 0}
   endings:
   - 'You died...
 
@@ -4585,6 +4584,9 @@ MonoBehaviour:
   - 'What a nice way to start a day!
 
     Press R to restart.'
+  pd: {fileID: 0}
+  ph: {fileID: 0}
+  phUI: {fileID: 0}
 --- !u!114 &861791956
 MonoBehaviour:
   m_ObjectHideFlags: 0

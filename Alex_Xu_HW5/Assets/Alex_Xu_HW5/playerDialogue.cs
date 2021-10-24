@@ -100,7 +100,6 @@ public class playerDialogue : MonoBehaviour
         yield return new WaitForSeconds(3);
         endings.active = true;
         Endings.Singleton.win = true;
-        gameObject.active = false;
 
     }
 

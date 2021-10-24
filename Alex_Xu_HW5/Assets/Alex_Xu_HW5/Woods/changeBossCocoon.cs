@@ -60,6 +60,11 @@ public class changeBossCocoon : MonoBehaviour
             {
                 boss.active = true;
                 bossHealth.active = true;
+                if(gameManager.Singleton.playerDies == true)
+                {
+                    boss.active = false;
+                    bossHealth.active = false;
+                }
             }
             else
             {
