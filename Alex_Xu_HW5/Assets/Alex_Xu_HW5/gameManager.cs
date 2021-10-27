@@ -14,6 +14,7 @@ public class gameManager : MonoBehaviour
     public bool playerDies;
     public GameObject axeUI;
     public GameObject blackScreen;
+    public GameObject noon;
     public GameObject[] moths;
 
 void Awake()
@@ -25,6 +26,8 @@ void Awake()
         {
             Destroy(this.gameObject);
         }
+
+        noon = GameObject.Find("Noon");
     }
 
     // Start is called before the first frame update
@@ -108,6 +111,18 @@ void Awake()
         Movement.Singleton.heating = false;
     }
 
+    void Noon()
+    {
+        if (bossKilled == true)
+        {
+            noon.active = true;
+        }
+        else
+        {
+            noon.active = false;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -116,5 +131,6 @@ void Awake()
         showAxeUI();
         heatedAxe();
         Die();
+        Noon();
     }
 }

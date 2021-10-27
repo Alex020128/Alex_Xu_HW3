@@ -7,13 +7,19 @@ public class cameraFollowCamp : MonoBehaviour
 
     public float followSpeed;
     public float yPos;
-    private Transform player;
+    public Transform player;
+
+
+    private void Awake()
+    {
+        player = GameObject.Find("Player").transform;
+    }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player").transform;
+
     }
 
     // Update is called once per frame
