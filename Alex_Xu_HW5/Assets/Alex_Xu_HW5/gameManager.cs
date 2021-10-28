@@ -15,6 +15,7 @@ public class gameManager : MonoBehaviour
     public GameObject axeUI;
     public GameObject blackScreen;
     public GameObject noon;
+    public GameObject bar;
     public GameObject[] moths;
 
 void Awake()
@@ -28,6 +29,7 @@ void Awake()
         }
 
         noon = GameObject.Find("Noon");
+        bar = GameObject.Find("fireBar");
     }
 
     // Start is called before the first frame update
@@ -49,10 +51,12 @@ void Awake()
         if (Movement.Singleton.haveAxe == true && gameManager.Singleton.playerDies == false && playerDialogue.Singleton.win == false)
         {
             axeUI.active = true;
+            bar.active = true;
         }
         else
         {
             axeUI.active = false;
+            bar.active = false;
         }
     }
 
@@ -107,7 +111,7 @@ void Awake()
 
     IEnumerator WaitForSec()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         Movement.Singleton.heating = false;
     }
 

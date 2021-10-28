@@ -66,13 +66,16 @@ public class Endings : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
 
+        if(Restart.Singleton.fadeIn == false)
+        {
             ph.active = false;
             phUI.active = false;
             pd.active = false;
+        }    
 
         if (Input.GetKey(KeyCode.R))
         {
-            SceneManager.LoadScene("mainMenu");
+            Restart.Singleton.fadeIn = true;
         }
     }
 
