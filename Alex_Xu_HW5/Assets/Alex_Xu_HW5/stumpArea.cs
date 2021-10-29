@@ -2,53 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bossArea : MonoBehaviour
+public class stumpArea : MonoBehaviour
 {
 
     public Animator animator;
-    public Animator wingsAnimator;
     private PolygonCollider2D pc;
     public int health;
     public bool invincible;
 
     public bool collidingAxe;
 
-    public bossMovement bossMovementScript;
-
     private void Awake()
     {
         pc = GetComponent<PolygonCollider2D>();
         pc.isTrigger = true;
-        collidingAxe = false;
     }
+
 
     // Start is called before the first frame update
     void Start()
     {
-        health = 100;
+        health = 3;
         invincible = false;
-        animator = GetComponentInParent<Animator>();
-        wingsAnimator = GameObject.Find("bossWings").GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("playerArea"))
-        {
-            bossMovementScript.colliding = true;
-            collidingAxe = true;
-        } else if (collision.CompareTag("playerAttackUpArea") || collision.CompareTag("playerAttackDownArea"))
+        if (collision.CompareTag("playerAttackUpArea") || collision.CompareTag("playerAttackDownArea"))
         {
             collidingAxe = true;
-            bossMovementScript.colliding = false;
-        }
-        else
+        } else
         {
-            bossMovementScript.colliding = false;
             collidingAxe = false;
         }
     }
-
 
     void getHurt()
     {
@@ -60,32 +48,33 @@ public class bossArea : MonoBehaviour
             }
             else
             {
-                health -= 3;
+                health -= 2;
             }
             animator.SetTrigger("getHurt");
-            wingsAnimator.SetTrigger("getHurt");
             invincible = true;
             StartCoroutine(WaitForSec());
         }
     }
 
-IEnumerator WaitForSec()
+    IEnumerator WaitForSec()
     {
         yield return new WaitForSeconds(1);
         invincible = false;
     }
 
-// Update is called once per frame
-void Update()
-    {
 
+    // Update is called once per frame
+    void Update()
+    {
         getHurt();
+
+        collidingAxe = false;
 
 
         if (health <= 0)
         {
-            gameManager.Singleton.bossKilled = true;
-            transform.parent.gameObject.active = false;
+            gameManager.Singleton.wood += 2;
+            Destroy(gameObject);
         }
     }
 }

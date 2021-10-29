@@ -34,7 +34,7 @@ public class woodsIndicators : MonoBehaviour
         if (playerGoal.Singleton.mothSpawn == true)
         {
             ci.active = true;
-            if (Movement.Singleton.collideWith == "Cocoon")
+            if (playerGoal.Singleton.bossStageTwo == true)
             {
                 ci.active = false;
             }

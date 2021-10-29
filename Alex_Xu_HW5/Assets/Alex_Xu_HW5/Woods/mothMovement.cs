@@ -8,7 +8,7 @@ public class mothMovement : MonoBehaviour
     public float followSpeed;
     public float lineOfSite;
     public float shootingRange;
-    public float fireRate = 1;
+    public float fireRate = 3;
     private float nextFireTime;
     public Animator animator;
 

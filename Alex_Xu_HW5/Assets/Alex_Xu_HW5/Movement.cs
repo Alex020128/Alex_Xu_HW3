@@ -21,6 +21,9 @@ public class Movement : MonoBehaviour
 
     public GameObject pd;
 
+    public GameObject au;
+    public GameObject ad;
+
     Vector2 movement;
 
     public static Movement Singleton;
@@ -37,6 +40,9 @@ public class Movement : MonoBehaviour
         }
         
         transform.position = new Vector2(3.8f, 2.7f);
+
+        au = GameObject.Find("playerAttackUpArea");
+        ad = GameObject.Find("playerAttackDownArea");
     }
 
 
@@ -53,6 +59,9 @@ public class Movement : MonoBehaviour
 
         collideWith = "None";
         haveAxe = false;
+
+        au.active = false;
+        ad.active = false;
     }
 
     void Walk()
@@ -62,7 +71,7 @@ public class Movement : MonoBehaviour
         if (clipName == "playerPickUp") 
         {
             canMove = false;
-        }else if (clipName == "playerAttack" || clipName == "playerFireAttack")
+        }else if (clipName == "playerAttack" || clipName == "playerFireAttack" || clipName == "playerAttackUp" || clipName == "playerFireAttackUp")
         {
             canMove = false;
             attacking = true;
@@ -80,6 +89,12 @@ public class Movement : MonoBehaviour
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
+
+            if(Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
+            {
+                animator.SetFloat("lastMoveX", Input.GetAxisRaw("Horizontal"));
+                animator.SetFloat("lastMoveY", Input.GetAxisRaw("Vertical"));
+            }
         }
 
     }
@@ -108,6 +123,18 @@ public class Movement : MonoBehaviour
             }
         }
 
+    }
+
+    void attackUp()
+    {
+            au.active = true;
+            ad.active = false;
+    }
+
+    void attackDown()
+    {
+            ad.active = true;
+            au.active = false;
     }
 
     public void OnCollisionStay2D(Collision2D collision)

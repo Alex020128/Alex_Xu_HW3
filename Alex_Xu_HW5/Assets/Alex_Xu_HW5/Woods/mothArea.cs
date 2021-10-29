@@ -27,7 +27,8 @@ public class mothArea : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("playerArea")){
+        if (collision.CompareTag("playerAttackUpArea") || collision.CompareTag("playerAttackDownArea"))
+        {
             colliding = true;
         } else
         {
@@ -43,7 +44,7 @@ public class mothArea : MonoBehaviour
                 health -= 1;
             } else
             {
-                health -= 5;
+                health -= 3;
             }
             animator.SetTrigger("getHurt");
             invincible = true;

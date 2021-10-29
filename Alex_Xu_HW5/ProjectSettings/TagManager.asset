@@ -13,6 +13,8 @@ TagManager:
   - Moth
   - bossCocoon
   - Boss
+  - playerAttackUpArea
+  - playerAttackDownArea
   layers:
   - Default
   - TransparentFX

@@ -9,6 +9,7 @@ public class bossMovement : MonoBehaviour
     public float lineOfSite;
     public float shootingRange;
     public float meleeRange;
+    public float chaseRange;
     public float fireRate = 1;
     private float nextFireTime;
     public Animator animator;
@@ -45,6 +46,7 @@ public class bossMovement : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, lineOfSite);
         Gizmos.DrawWireSphere(transform.position, shootingRange);
         Gizmos.DrawWireSphere(transform.position, meleeRange);
+        Gizmos.DrawWireSphere(transform.position, chaseRange);
     }
 
 
@@ -73,13 +75,18 @@ public class bossMovement : MonoBehaviour
             rb.isKinematic = false;
             transform.position = Vector2.MoveTowards(this.transform.position, player.position, followSpeed * Time.deltaTime);
         }
-        else if (distanceFromPlayer <= shootingRange && distanceFromPlayer >= meleeRange && nextFireTime < Time.time && clipName != "bossHurts")
+        else if (distanceFromPlayer <= shootingRange && distanceFromPlayer >= chaseRange && nextFireTime < Time.time && clipName != "bossHurts")
         {
             rb.isKinematic = true;
             Instantiate(bullet, bulletParent.transform.position, Quaternion.identity);
             nextFireTime = Time.time + fireRate;
         }
-        else if (distanceFromPlayer <= meleeRange && colliding == true && canAttack == true)
+        else if (distanceFromPlayer < chaseRange && distanceFromPlayer > meleeRange)
+        {
+            rb.isKinematic = false;
+            transform.position = Vector2.MoveTowards(this.transform.position, player.position, followSpeed * Time.deltaTime);
+        }
+        else if (distanceFromPlayer <= meleeRange && canAttack == true)
         {
             animator.SetTrigger("bossAttack");
             canAttack = false;

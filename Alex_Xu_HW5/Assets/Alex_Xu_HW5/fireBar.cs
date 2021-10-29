@@ -29,7 +29,7 @@ public class fireBar : MonoBehaviour
         bar.fillAmount = 0;
         counter = 0;
         heat = false;
-        duration = 500;
+        duration = 300;
 
     }
 
@@ -52,7 +52,9 @@ public class fireBar : MonoBehaviour
         {
             bar.fillAmount = 1;
             heat = true;
-        }else{
+        }
+        else
+        {
             bar.fillAmount = 0;
             counter = 0;
             heat = false;

@@ -48,12 +48,15 @@ void Awake()
 
     void showAxeUI()
     {
-        if (Movement.Singleton.haveAxe == true && gameManager.Singleton.playerDies == false && playerDialogue.Singleton.win == false)
+        if (Movement.Singleton.haveAxe == true && playerDies == false && playerDialogue.Singleton.win == false && playerGoal.Singleton.bossStageTwo == false)
         {
             axeUI.active = true;
+            bar.active = false;
+        } else if(Movement.Singleton.haveAxe == true && playerDies == false && playerDialogue.Singleton.win == false && playerGoal.Singleton.bossStageTwo == true)
+            {
+            axeUI.active = true;
             bar.active = true;
-        }
-        else
+        } else
         {
             axeUI.active = false;
             bar.active = false;
@@ -111,7 +114,7 @@ void Awake()
 
     IEnumerator WaitForSec()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         Movement.Singleton.heating = false;
     }
 

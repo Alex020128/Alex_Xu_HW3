@@ -30,9 +30,8 @@ public class bossBullet : MonoBehaviour
         if ((collision.CompareTag("playerArea")) && (Movement.Singleton.invincible == false) && (gameManager.Singleton.playerDies == false))
         {
             playerHealth.Singleton.health -= 2;
-            Movement.Singleton.invincible = true;
             animator.SetTrigger("getHurt");
-
+            Movement.Singleton.invincible = true;
             Destroy(this.gameObject);
         }
     }
