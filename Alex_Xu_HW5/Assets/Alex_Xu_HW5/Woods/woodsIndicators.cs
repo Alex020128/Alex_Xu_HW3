@@ -7,6 +7,8 @@ public class woodsIndicators : MonoBehaviour
     public static woodsIndicators Singleton;
 
     public GameObject ci;
+    public GameObject mothCocoons;
+    public GameObject bossArea;
 
     void Awake()
     {
@@ -20,6 +22,8 @@ public class woodsIndicators : MonoBehaviour
         }
 
         ci = GameObject.Find("cocoonIndicator");
+        mothCocoons = GameObject.Find("mothCocoons");
+        bossArea = GameObject.Find("bossArea");
     }
 
 
@@ -40,10 +44,22 @@ public class woodsIndicators : MonoBehaviour
             }
         }
     }
+    void spawnCocoons()
+    {
+        if (bossArea.GetComponentInChildren<bossArea>().health <= 50)
+        {
+            mothCocoons.active = true;
+        }
+        else
+        {
+            mothCocoons.active = false;
+        }
+    }
 
     // Update is called once per frame
     void Update()
     {
         cocoonIndicator();
+        spawnCocoons();
     }
 }
