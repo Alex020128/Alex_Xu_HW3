@@ -7,9 +7,10 @@ public class bossArea : MonoBehaviour
 
     public Animator animator;
     public Animator wingsAnimator;
-    private PolygonCollider2D pc;
+    private BoxCollider2D pc;
     public int health;
     public bool invincible;
+    public bool cantHurt;
 
     public bool collidingAxe;
 
@@ -19,9 +20,10 @@ public class bossArea : MonoBehaviour
 
     private void Awake()
     {
-        pc = GetComponent<PolygonCollider2D>();
+        pc = GetComponent<BoxCollider2D>();
         pc.isTrigger = true;
         collidingAxe = false;
+        cantHurt = false;
     }
 
     // Start is called before the first frame update
@@ -54,7 +56,7 @@ public class bossArea : MonoBehaviour
 
     void getHurt()
     {
-        if (collidingAxe == true && Movement.Singleton.attacking == true && invincible == false)
+        if (collidingAxe == true && Movement.Singleton.attacking == true && invincible == false && cantHurt == false)
         {
             if (Movement.Singleton.heating == false)
             {

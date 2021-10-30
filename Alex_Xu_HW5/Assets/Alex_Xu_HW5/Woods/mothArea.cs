@@ -6,14 +6,14 @@ public class mothArea : MonoBehaviour
 {
 
     public Animator animator;
-    private PolygonCollider2D pc;
+    private BoxCollider2D pc;
     public float health;
     public bool invincible;
     public bool colliding;
 
     private void Awake()
     {
-        pc = GetComponent<PolygonCollider2D>();
+        pc = GetComponent<BoxCollider2D>();
         pc.isTrigger = true;
     }
 

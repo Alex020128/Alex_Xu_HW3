@@ -10,6 +10,8 @@ public class woodsIndicators : MonoBehaviour
     public GameObject mothCocoons;
     public GameObject bossArea;
 
+    public float mothCocoonLeft;
+
     void Awake()
     {
         if (Singleton == null)
@@ -24,6 +26,8 @@ public class woodsIndicators : MonoBehaviour
         ci = GameObject.Find("cocoonIndicator");
         mothCocoons = GameObject.Find("mothCocoons");
         bossArea = GameObject.Find("bossArea");
+
+        mothCocoonLeft = 3;
     }
 
 
@@ -61,5 +65,19 @@ public class woodsIndicators : MonoBehaviour
     {
         cocoonIndicator();
         spawnCocoons();
+
+        if (mothCocoonLeft > 0 && bossArea.GetComponent<bossArea>().health <= 50)
+        {
+            bossArea.GetComponent<bossArea>().cantHurt = true;
+            playerGoal.Singleton.bossStageThree = true;
+        }
+        else if (mothCocoonLeft == 0 && bossArea.GetComponent<bossArea>().health <= 50)
+        {
+            bossArea.GetComponent<bossArea>().cantHurt = false;
+            playerGoal.Singleton.bossStageFour = true;
+        }else
+        {
+            bossArea.GetComponent<bossArea>().cantHurt = false;
+        }
     }
 }

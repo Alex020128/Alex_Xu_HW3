@@ -114,7 +114,7 @@ void Awake()
 
     IEnumerator WaitForSec()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4);
         Movement.Singleton.heating = false;
     }
 

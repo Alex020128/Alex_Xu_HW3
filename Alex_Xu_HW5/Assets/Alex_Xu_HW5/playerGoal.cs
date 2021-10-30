@@ -14,6 +14,8 @@ public class playerGoal : MonoBehaviour
     public bool mothSpawn;
     public bool burnCocoon;
     public bool bossStageTwo;
+    public bool bossStageThree;
+    public bool bossStageFour;
 
     public static playerGoal Singleton;
 
@@ -24,6 +26,8 @@ public class playerGoal : MonoBehaviour
                                            "Moth-like monsters are out in the woods.\nAttack with the axe and find the cause of the chaos.",
                                            "A huge cocoon appears on a tree, and my axe can't cut it?\nCollect 10 pieces of wood to try burn it down.",
                                            "The monster in the cocoon comes out of the cocoon!\nHeat the axe with fire to deal fire damage.",
+                                           "The monster spawned some cocoons, and they are protecting the boss.\nFind and destroy the 3 cocoons before attacking the boss.",
+                                           "The boss lost its protection and is running out of energy!\nNow! Kill the monster in one fell swoop!",
                                            "You defeated the monster!\nNow head back to your camp and enjoy the breakfast."};
 
     private void Awake()
@@ -49,6 +53,8 @@ public class playerGoal : MonoBehaviour
         mothSpawn = false;
         burnCocoon = false;
         bossStageTwo = false;
+        bossStageThree = false;
+        bossStageFour = false;
         goal.text = goals[0];
         goal.text = goal.text.Replace("\\n", "\n");
     }
@@ -74,9 +80,17 @@ public class playerGoal : MonoBehaviour
                             if (bossStageTwo == true)
                             {
                                 goal.text = goals[6];
-                                if (gameManager.Singleton.bossKilled == true)
+                                if (bossStageThree == true)
                                 {
                                     goal.text = goals[7];
+                                    if (bossStageFour == true)
+                                    {
+                                        goal.text = goals[8];
+                                        if (gameManager.Singleton.bossKilled == true)
+                                        {
+                                            goal.text = goals[9];
+                                        }
+                                    }
                                 }
                             }
                         }

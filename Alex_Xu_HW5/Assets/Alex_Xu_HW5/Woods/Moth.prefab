@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8892475245227735653}
   - component: {fileID: 8892475245227735654}
-  - component: {fileID: 8892475245227735655}
   - component: {fileID: 8892475245227735657}
   - component: {fileID: 3446038725036630258}
+  - component: {fileID: 1832542932226580216}
   m_Layer: 0
   m_Name: mothArea
   m_TagString: mothArea
@@ -86,112 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &8892475245227735655
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8892475245227735650}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5053556, y: 0}
-    oldSize: {x: 4.79, y: 3.67}
-    newSize: {x: 4.79, y: 3.67}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.7393466, y: 0.45999998}
-      - {x: 0.7793466, y: 0.55}
-      - {x: 0.8093466, y: 0.66999996}
-      - {x: 0.8393466, y: 0.81}
-      - {x: 0.9193466, y: 0.81}
-      - {x: 0.9893466, y: 0.82}
-      - {x: 1.0993466, y: 0.84}
-      - {x: 1.2993466, y: 0.95}
-      - {x: 1.5593466, y: 1.2099999}
-      - {x: 1.6693466, y: 1.4}
-      - {x: 1.6893466, y: 1.5}
-      - {x: 1.7093465, y: 1.66}
-      - {x: 1.6993465, y: 1.75}
-      - {x: 1.6693466, y: 1.8299999}
-      - {x: 1.7893466, y: 1.89}
-      - {x: 1.9393466, y: 2.05}
-      - {x: 2.0993466, y: 2.28}
-      - {x: 2.2493465, y: 2.59}
-      - {x: 2.3193467, y: 2.85}
-      - {x: 2.3693466, y: 3.08}
-      - {x: 2.3693466, y: 3.3999999}
-      - {x: 2.3393466, y: 3.49}
-      - {x: 2.1993465, y: 3.6399999}
-      - {x: 2.1093466, y: 3.6699998}
-      - {x: 1.7693466, y: 3.6699998}
-      - {x: 1.6393466, y: 3.6299999}
-      - {x: 1.4693466, y: 3.57}
-      - {x: 1.1893466, y: 3.4399998}
-      - {x: 1.0693465, y: 3.37}
-      - {x: 1.0093466, y: 3.33}
-      - {x: 0.8793466, y: 3.24}
-      - {x: 0.6793466, y: 3.08}
-      - {x: 0.4493466, y: 2.84}
-      - {x: 0.4193466, y: 2.83}
-      - {x: 0.2593466, y: 2.6799998}
-      - {x: 0.16934662, y: 2.6699998}
-      - {x: 0.069346614, y: 2.6799998}
-      - {x: -0.16065338, y: 2.6799998}
-      - {x: -0.22065337, y: 2.6699998}
-      - {x: -0.32065338, y: 2.6499999}
-      - {x: -0.5706534, y: 2.9099998}
-      - {x: -0.74065334, y: 3.08}
-      - {x: -0.85065335, y: 3.1699998}
-      - {x: -1.0006534, y: 3.29}
-      - {x: -1.1206534, y: 3.37}
-      - {x: -1.4506533, y: 3.54}
-      - {x: -1.6806533, y: 3.6299999}
-      - {x: -1.7606534, y: 3.6499999}
-      - {x: -1.8506533, y: 3.6699998}
-      - {x: -2.1606534, y: 3.6699998}
-      - {x: -2.2506533, y: 3.6299999}
-      - {x: -2.3506534, y: 3.54}
-      - {x: -2.3806534, y: 3.49}
-      - {x: -2.4206533, y: 3.3899999}
-      - {x: -2.4206533, y: 3.08}
-      - {x: -2.3606534, y: 2.8}
-      - {x: -2.2906532, y: 2.59}
-      - {x: -2.1406534, y: 2.28}
-      - {x: -2.0206532, y: 2.09}
-      - {x: -1.8906534, y: 1.93}
-      - {x: -1.7306533, y: 1.8299999}
-      - {x: -1.7606534, y: 1.75}
-      - {x: -1.7606534, y: 1.63}
-      - {x: -1.7406534, y: 1.49}
-      - {x: -1.6706533, y: 1.3199999}
-      - {x: -1.6006533, y: 1.2099999}
-      - {x: -1.4806534, y: 1.0699999}
-      - {x: -1.3406533, y: 0.96}
-      - {x: -1.2406534, y: 0.88}
-      - {x: -1.0506533, y: 0.81}
-      - {x: -0.8706534, y: 0.79999995}
-      - {x: -0.85065335, y: 0.62}
-      - {x: -0.8206534, y: 0.5}
-      - {x: -0.72065336, y: 0.34}
-      - {x: -0.54065335, y: 0.17}
-      - {x: -0.3106534, y: 0.049999997}
-      - {x: -0.09065338, y: 0}
-      - {x: 0.11934662, y: 0}
-      - {x: 0.29934663, y: 0.06}
-      - {x: 0.5293466, y: 0.19}
-      - {x: 0.6893466, y: 0.37}
 --- !u!50 &8892475245227735657
 Rigidbody2D:
   serializedVersion: 4
@@ -229,7 +123,34 @@ MonoBehaviour:
   health: 0
   invincible: 0
   colliding: 0
+  mothCocoonExist: 0
   mothCocoon: {fileID: 0}
+--- !u!61 &1832542932226580216
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8892475245227735650}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.025653362, y: 1.835}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5053556, y: 0}
+    oldSize: {x: 4.79, y: 3.67}
+    newSize: {x: 4.79, y: 3.67}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.79, y: 3.67}
+  m_EdgeRadius: 0
 --- !u!1 &8892475245309194154
 GameObject:
   m_ObjectHideFlags: 0

@@ -100,16 +100,25 @@ public class mothCocoon : MonoBehaviour
 
         spawnMoth();
 
+        foreach (GameObject moth in moths)
+        {
+            moth.GetComponentInChildren<spawnedMothArea>().spawner = this;
+        }
+
         counter += Time.deltaTime;
 
         collidingAxe = false;
 
         if (health <= 0)
         {
-            foreach (GameObject moth in moths)
-            {
-                moth.GetComponentInChildren<spawnedMothArea>().mothCocoonExist = false;
+            if (moths.Count > 0){
+                foreach (GameObject moth in moths)
+                {
+                    moth.GetComponentInChildren<spawnedMothArea>().mothCocoonExist = false;
+                }
             }
+            woodsIndicators.Singleton.mothCocoonLeft -= 1;
+            gameManager.Singleton.wood += 2;
             Destroy(gameObject);
         }
     }

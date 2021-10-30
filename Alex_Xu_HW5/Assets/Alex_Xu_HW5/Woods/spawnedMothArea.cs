@@ -6,19 +6,18 @@ public class spawnedMothArea : MonoBehaviour
 {
 
     public Animator animator;
-    private PolygonCollider2D pc;
+    private BoxCollider2D pc;
     public float health;
     public bool invincible;
     public bool colliding;
     public bool mothCocoonExist;
 
-    public GameObject mothCocoon;
+    public mothCocoon spawner;
 
     private void Awake()
     {
-        pc = GetComponent<PolygonCollider2D>();
+        pc = GetComponent<BoxCollider2D>();
         pc.isTrigger = true;
-        mothCocoon = GameObject.Find("mothCocoon");
         mothCocoonExist = true;
     }
 
@@ -75,7 +74,7 @@ public class spawnedMothArea : MonoBehaviour
         {
             if (mothCocoonExist == true)
             {
-                mothCocoon.GetComponent<mothCocoon>().moths.Remove(transform.parent.gameObject);
+                spawner.GetComponent<mothCocoon>().moths.Remove(transform.parent.gameObject);
             }
             Destroy(transform.parent.gameObject);
         }
