@@ -5,7 +5,7 @@ using UnityEngine;
 public class bossMeleeRange : MonoBehaviour
 {
 
-    private PolygonCollider2D pc;
+    private BoxCollider2D pc;
     public Animator playerAnimator;
     public bossMovement bossMovementScript;
 
@@ -14,7 +14,7 @@ public class bossMeleeRange : MonoBehaviour
 
     private void Awake()
     {
-        pc = GetComponent<PolygonCollider2D>();
+        pc = GetComponent<BoxCollider2D>();
         pc.isTrigger = true;
     }
 
@@ -42,8 +42,8 @@ public class bossMeleeRange : MonoBehaviour
         {
             if (colliding == true && bossMovementScript.damaging == true && Movement.Singleton.invincible == false && gameManager.Singleton.playerDies == false)
             {
-                playerHealth.Singleton.health -= 3;
-            bossMovementScript.damaging = false;
+                playerHealth.Singleton.health -= 5;
+                bossMovementScript.damaging = false;
                 Movement.Singleton.invincible = true;
                 playerAnimator.SetTrigger("getHurt");
         }

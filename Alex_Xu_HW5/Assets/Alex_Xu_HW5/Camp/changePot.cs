@@ -7,10 +7,16 @@ public class changePot : MonoBehaviour
 
     public Animator animator;
 
+    public AudioSource audioSource;
+
+    public AudioClip burningSound;
+
+    public AudioClip currentMusic;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void OnCollisionStay2D(Collision2D collision)
@@ -37,9 +43,22 @@ public class changePot : MonoBehaviour
         }
     }
 
+    public void burningSFX()
+    {
+        if (playerDialogue.Singleton.lightFire == true &&  currentMusic != burningSound)
+        {
+            audioSource.Stop();
+            audioSource.clip = burningSound;
+            audioSource.Play();
+            currentMusic = burningSound;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         woodGiven();
+
+        burningSFX();
     }
 }

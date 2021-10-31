@@ -87,6 +87,7 @@ void Update()
 
         if (health <= 0)
         {
+            gameManager.Singleton.Kill();
             gameManager.Singleton.bossKilled = true;
             transform.parent.gameObject.active = false;
         }

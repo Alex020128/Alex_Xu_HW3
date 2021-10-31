@@ -9,11 +9,18 @@ public class changeBossCocoon : MonoBehaviour
     public GameObject boss;
     public GameObject bossHealth;
 
+    public AudioSource audioSource;
+
+    public AudioClip burningSound;
+
+    public AudioClip currentMusic;
+
     // Start is called before the first frame update
     void Start()
     {
         boss = GameObject.Find("Boss");
         bossHealth = GameObject.Find("bossHealthNumber");
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void OnCollisionStay2D(Collision2D collision)
@@ -77,11 +84,22 @@ public class changeBossCocoon : MonoBehaviour
             bossHealth.active = false;
         }
     }
+    public void burningSFX()
+    {
+        if (gameManager.Singleton.stageTwo == true && currentMusic != burningSound)
+        {
+            audioSource.Stop();
+            audioSource.clip = burningSound;
+            audioSource.Play();
+            currentMusic = burningSound;
+        }
+    }
 
     // Update is called once per frame
     void Update()
     {
         changeStages();
         spawnBoss();
+        burningSFX();
     }
 }

@@ -18,7 +18,15 @@ public class gameManager : MonoBehaviour
     public GameObject bar;
     public GameObject[] moths;
 
-void Awake()
+    public AudioSource audioSource;
+
+    public AudioClip killSound;
+    public AudioClip crowSound;
+    public AudioClip breakWoodSound;
+    public AudioClip lightFireSound;
+    public AudioClip breakCocoonSound;
+
+    void Awake()
     {
         if (Singleton == null) 
         {
@@ -43,7 +51,7 @@ void Awake()
 
         axeUI = GameObject.Find("axeUI");
         blackScreen = GameObject.Find("blackScreen");
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     void showAxeUI()
@@ -105,6 +113,7 @@ void Awake()
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
+                lightFire();
                 wood -= 1;
                 Movement.Singleton.heating = true;
                 StartCoroutine(WaitForSec());
@@ -130,6 +139,37 @@ void Awake()
         }
     }
 
+    public void Kill()
+    {
+        audioSource.Stop();
+        audioSource.clip = killSound;
+        audioSource.Play();
+    }
+    public void Crow()
+    {
+        audioSource.Stop();
+        audioSource.clip = crowSound;
+        audioSource.Play();
+    }
+    public void lightFire()
+    {
+        audioSource.Stop();
+        audioSource.clip = lightFireSound;
+        audioSource.Play();
+    }
+    public void breakWood()
+    {
+        audioSource.Stop();
+        audioSource.clip = breakWoodSound;
+        audioSource.Play();
+    }
+    public void breakCocoon()
+    {
+        audioSource.Stop();
+        audioSource.clip = breakCocoonSound;
+        audioSource.Play();
+    }
+    
     // Update is called once per frame
     void Update()
     {

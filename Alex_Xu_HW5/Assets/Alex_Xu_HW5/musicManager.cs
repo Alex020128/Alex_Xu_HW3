@@ -54,12 +54,20 @@ public class musicManager : MonoBehaviour
             currentMusic = woodsMusicMonster;
         }
 
-        if (playerGoal.Singleton.bossStageTwo == true && currentMusic != bossMusic)
+        if (playerGoal.Singleton.bossStageTwo == true && gameManager.Singleton.bossKilled == false && currentMusic != bossMusic)
         {
             audioSource.Stop();
             audioSource.clip = bossMusic;
             audioSource.Play();
             currentMusic = bossMusic;
+        }
+
+        if (gameManager.Singleton.bossKilled == true && currentMusic != woodsMusic)
+        {
+            audioSource.Stop();
+            audioSource.clip = woodsMusic;
+            audioSource.Play();
+            currentMusic = woodsMusic;
         }
     }
 }

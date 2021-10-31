@@ -23,9 +23,14 @@ public class bossMovement : MonoBehaviour
     private Transform player;
     public Rigidbody2D rb;
 
+    public AudioSource audioSource;
+
+    public AudioClip meleeAttackSound;
+    public AudioClip hurtSound;
+
     private void Awake()
     {
-
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -62,6 +67,19 @@ public class bossMovement : MonoBehaviour
         canAttack = true;
     }
 
+    public void hurtSFX()
+    {
+        audioSource.Stop();
+        audioSource.clip = hurtSound;
+        audioSource.Play();
+    }
+
+    public void meleeAttackSFX()
+    {
+        audioSource.Stop();
+        audioSource.clip =meleeAttackSound;
+        audioSource.Play();
+    }
 
     // Update is called once per frame
     void Update()

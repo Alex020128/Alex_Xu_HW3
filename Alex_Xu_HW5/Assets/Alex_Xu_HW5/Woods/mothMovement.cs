@@ -17,13 +17,15 @@ public class mothMovement : MonoBehaviour
     private Transform player;
     public Rigidbody2D rb;
 
+    public AudioSource audioSource;
 
-
+    public AudioClip hurtSound;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player").transform;
+        audioSource = GetComponent<AudioSource>();
     }
 
     
@@ -34,11 +36,16 @@ public class mothMovement : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, lineOfSite);
         Gizmos.DrawWireSphere(transform.position, shootingRange);
     }
-    
-    
-    
-    
-    
+
+    public void hurtSFX()
+    {
+        audioSource.Stop();
+        audioSource.clip = hurtSound;
+        audioSource.Play();
+    }
+
+
+
     // Update is called once per frame
     void Update()
     {

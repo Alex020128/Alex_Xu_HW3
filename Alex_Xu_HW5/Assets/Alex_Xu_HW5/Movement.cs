@@ -142,6 +142,7 @@ public class Movement : MonoBehaviour
         if ((collision.collider.gameObject.tag == "Wood") && (Input.GetKey(KeyCode.Space)))
         {
             gameManager.Singleton.wood += 1;
+            playerSoundEffects.Singleton.pickUpSFX();
             Destroy(collision.collider.gameObject);
         }
 

@@ -64,6 +64,7 @@ public class mothArea : MonoBehaviour
         getHurt();
         if (health <= 0)
         {
+            gameManager.Singleton.Kill();
             Destroy(transform.parent.gameObject);
         }
     }

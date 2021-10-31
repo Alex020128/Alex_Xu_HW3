@@ -76,6 +76,7 @@ public class spawnedMothArea : MonoBehaviour
             {
                 spawner.GetComponent<mothCocoon>().moths.Remove(transform.parent.gameObject);
             }
+            gameManager.Singleton.Kill();
             Destroy(transform.parent.gameObject);
         }
     }

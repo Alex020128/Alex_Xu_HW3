@@ -12,10 +12,14 @@ public class stumpArea : MonoBehaviour
 
     public bool collidingAxe;
 
+    public AudioSource audioSource;
+
     private void Awake()
     {
         pc = GetComponent<PolygonCollider2D>();
         pc.isTrigger = true;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -62,6 +66,10 @@ public class stumpArea : MonoBehaviour
         invincible = false;
     }
 
+    public void chopSFX()
+    {
+        audioSource.Play();
+    }
 
     // Update is called once per frame
     void Update()
@@ -73,6 +81,7 @@ public class stumpArea : MonoBehaviour
         if (health <= 0)
         {
             gameManager.Singleton.wood += 2;
+            gameManager.Singleton.breakWood();
             Destroy(gameObject);
         }
     }

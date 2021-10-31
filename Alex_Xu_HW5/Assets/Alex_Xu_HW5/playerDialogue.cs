@@ -123,6 +123,7 @@ public class playerDialogue : MonoBehaviour
     {
         if (movementScript.collideWith == "Tent")
         {
+            gameManager.Singleton.Crow();
             playerText.text = dialogues[4];
             if (Input.GetKey(KeyCode.E))
             {

@@ -20,12 +20,17 @@ public class mothCocoon : MonoBehaviour
 
     public List<GameObject> moths = new List<GameObject>();
 
+    public AudioSource audioSource;
+
+    public AudioClip hurtSound;
+
     private void Awake()
     {
         pc = GetComponent<PolygonCollider2D>();
         pc.isTrigger = true;
         canSpawn = true;
         counter = 0;
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -92,6 +97,12 @@ public class mothCocoon : MonoBehaviour
             counter = 0;
         }
     }
+    public void hurtSFX()
+    {
+        audioSource.Stop();
+        audioSource.clip = hurtSound;
+        audioSource.Play();
+    }
 
     // Update is called once per frame
     void Update()
@@ -119,6 +130,7 @@ public class mothCocoon : MonoBehaviour
             }
             woodsIndicators.Singleton.mothCocoonLeft -= 1;
             gameManager.Singleton.wood += 2;
+            gameManager.Singleton.breakCocoon();
             Destroy(gameObject);
         }
     }
